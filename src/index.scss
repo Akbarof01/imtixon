@@ -1,0 +1,82 @@
+@import "./common/mixins.scss";
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+:root {
+  --color-red: hsl(0, 97%, 63%);
+  --color-background: hsl(221, 35%, 9%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-blue-dark: hsl(223, 30%, 9%);
+  --color-blue-light: hsl(223, 36%, 14%);
+  --color-blue-grey: hsl(223, 23%, 46%);
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+
+  @include respond(tab-land) {
+    font-size: 56.25%;
+  }
+
+  @include respond(tab-pot) {
+    font-size: 50%;
+  }
+
+  @include respond(phone) { 
+  }
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  line-height: 1;
+  font-weight: 300;
+  background-color: var(--color-background);
+  color: var(--color-white);
+}
+
+.container {
+  min-height: 100vh;
+}
+
+li {
+  list-style: none;
+}
+
+.list-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 3.2rem;
+  column-gap: 3.2rem;
+
+  @include respond(tab-land-min) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include respond(tab-pot) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond(phone) {
+    gap: 1.8rem;
+  }
+
+  @include respond(phone-min) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.swiper-wrapper {
+  max-width: 0rem !important;
+}
+
+.swiper-slide {
+  width: auto !important;
+}

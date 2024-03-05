@@ -1,0 +1,94 @@
+@import "../../common/mixins.scss";
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 3.2rem;
+  height: calc(100vh - 7rem);
+  background-color: var(--color-blue-light);
+
+  padding: 3.2rem;
+  border-radius: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 7rem;
+
+  @include respond(tab-land-min) {
+    left: 3rem;
+    margin: 3.2rem 0;
+    gap: 0;
+    position: fixed;
+    align-items: center;
+
+    flex-direction: row;
+    width: calc(100% - 6rem);
+    height: 8rem;
+    z-index: 30;
+
+    justify-content: space-between;
+  }
+
+  @include respond(phone) {
+    margin: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 0;
+  }
+}
+
+.logo {
+  transform: scale(1);
+  fill: var(--color-red);
+
+  @include respond(phone) {
+    transform: scale(0.9);
+  }
+}
+
+.nav {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+    align-items: center;
+
+    @include respond(tab-land-min) {
+      flex-direction: row;
+    }
+
+    @include respond(phone) {
+      gap: 2.4rem;
+    }
+  }
+  &__icon {
+    display: block;
+    fill: var(--color-blue-grey);
+    transition: all 0.3s;
+
+    @include respond(phone) {
+      transform: scale(0.9);
+    }
+
+    &:hover {
+      fill: var(--color-red);
+    }
+  }
+}
+
+.active {
+  fill: var(--color-white);
+}
+
+.avatar {
+  margin-top: auto;
+  width: 4.2rem;
+  height: 4.2rem;
+  border-radius: 50%;
+  cursor: pointer;
+
+  @include respond(tab-land-min) {
+    margin: 0;
+  }
+}
